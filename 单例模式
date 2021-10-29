@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace 单例模式
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            SingleClass ic1 = SingleClass.SingleMethod();
+            SingleClass ic2 = SingleClass.SingleMethod();
+            if (ic1 == ic2)
+            {
+                Console.WriteLine("二者储存变量相同");
+            }
+            Console.ReadKey();
+        }
+    }
+}
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace 单例模式
+{
+    class SingleClass
+    {
+        private static SingleClass singleInstance;
+        private SingleClass() { }
+        public static SingleClass SingleMethod()
+        {
+            if (singleInstance == null)
+            {
+                singleInstance = new SingleClass();
+            }
+            return singleInstance;
+        }
+    }
+}
